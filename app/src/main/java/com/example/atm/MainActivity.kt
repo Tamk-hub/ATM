@@ -46,6 +46,9 @@ class MainActivity : AppCompatActivity() {
                 startActivityForResult(camera, REQUEST_CAMERA)
 //                Log.d(ContentValues.TAG, "123")
             }
+            R.id.action_contacts -> {
+                startActivity(Intent(this, MaterialActivity::class.java))
+            }
         }
         return super.onOptionsItemSelected(item)
     }

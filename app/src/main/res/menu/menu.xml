@@ -3,15 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/action_work"
+        android:title="Work" />
+    <item
+        android:id="@+id/action_maps"
+        android:title="Google Maps"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_service"
+        android:title="Service" />
+    <item
+        android:id="@+id/action_transactions"
+        android:title="交易記錄" />
+    <item
+        android:id="@+id/action_expense"
+        android:title="消費記錄"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_contacts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:title="聯絡人"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="相機"
+        android:icon="@android:drawable/ic_menu_camera"
+        android:title="Camera"
         app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_help"
+        android:title="說明"
+        app:showAsAction="never" />
 </menu>
