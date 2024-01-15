@@ -2,6 +2,7 @@ package com.example.atm
 
 import android.app.Activity
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val userid = getSharedPreferences("atm",Context.MODE_PRIVATE).getString("PREF_USERID","")
+        binding.edUesrid.setText(userid)
     }
 
     fun login(view: View) {
@@ -26,12 +29,13 @@ class LoginActivity : AppCompatActivity() {
         val passwd = binding.edPassword.text.toString()
 //        Log.d(ContentValues.TAG, passwd)
         if (userid == "jack" && passwd == "1234") {
+            getSharedPreferences("atm", Context.MODE_PRIVATE).edit().putString("PREF_USERID", userid).apply()
             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show()
             val intent = Intent()
             intent.putExtra("LOGIN_USERID", userid)
             intent.putExtra("LOGIN_PASSWD", passwd)
             setResult(Activity.RESULT_OK, intent)
-            finish()  // 確保 setReuslt 在 finish 之前呼叫
+            finish()
         } else {
             AlertDialog.Builder(this).setTitle("ATM").setMessage("登入失敗")
                 .setPositiveButton("OK", null).show()
