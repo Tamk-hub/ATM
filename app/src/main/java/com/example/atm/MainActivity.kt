@@ -49,6 +49,10 @@ class MainActivity : AppCompatActivity() {
             R.id.action_contacts -> {
                 startActivity(Intent(this, MaterialActivity::class.java))
             }
+            R.id.action_expense -> {
+                startActivity(Intent(this, ExpenseActivity::class.java))
+            }
+
         }
         return super.onOptionsItemSelected(item)
     }
